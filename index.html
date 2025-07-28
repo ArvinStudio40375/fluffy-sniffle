@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit BRI - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <div class="logo">
+                <i class="fas fa-university" style="font-size: 48px; color: #1e3c72; margin-bottom: 15px;"></i>
+                <h1>Deposit BRI</h1>
+                <p>Mobile Banking Deposito</p>
+            </div>
+            
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fas fa-user"></i> Username
+                    </label>
+                    <input type="text" 
+                           id="username" 
+                           class="form-control" 
+                           placeholder="Masukkan username"
+                           autocomplete="username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="pin">
+                        <i class="fas fa-lock"></i> PIN
+                    </label>
+                    <input type="password" 
+                           id="pin" 
+                           class="form-control" 
+                           placeholder="Masukkan PIN"
+                           maxlength="6"
+                           autocomplete="current-password">
+                </div>
+                
+                <button type="submit" id="loginBtn" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Masuk
+                </button>
+            </form>
+            
+            <div class="text-center mt-3">
+                <small style="color: #666;">
+                    <i class="fas fa-shield-alt"></i>
+                    Aplikasi ini aman dan terenkripsi
+                </small>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer-text">
+        <div class="container text-center">
+            <div class="footer-content" onclick="showAdminModal()">
+                <div>Bank Rakyat Indonesia Pusat</div>
+                <div>Copyright@2025</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Admin Access -->
+    <div class="modal fade" id="adminModal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-user-shield"></i> Admin Access
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="adminForm" onsubmit="handleAdminAccess(event)">
+                        <div class="form-group">
+                            <label for="adminCode">Kode Admin:</label>
+                            <input type="password" 
+                                   id="adminCode" 
+                                   class="form-control" 
+                                   placeholder="Masukkan kode admin"
+                                   maxlength="6"
+                                   required>
+                        </div>
+                        <button type="submit" class="btn btn-danger w-100 mt-3">
+                            <i class="fas fa-sign-in-alt"></i> Masuk Admin
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
